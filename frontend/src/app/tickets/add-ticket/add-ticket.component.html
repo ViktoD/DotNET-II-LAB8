@@ -1,0 +1,27 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">Reader</label>
+    <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="TicketReaderID" required>
+            <option selected>Choose reader</option>
+            <option *ngFor="let reader of ReaderList" value="{{reader.ID}}">{{reader.Surname}}</option>
+        </select>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Date start</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" [(ngModel)]="TicketDateStart"
+        placeholder="Enter date start ticket" required>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Date end</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" [(ngModel)]="TicketDateEnd"
+        placeholder="Enter date end ticket" required>
+    </div>
+</div>
+
+
+<button type="button" (click)="addTicket()" class="btn btn-primary">
+    Add ticket
+</button>
