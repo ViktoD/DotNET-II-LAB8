@@ -1,0 +1,81 @@
+<h1>All readers</h1>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click) = "addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add reader
+</button> 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{modalTitle}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click) = "closeClick()" 
+          ></button>
+        </div>
+        <div class="modal-body">
+            <app-add-reader [reader]="reader" *ngIf="activateAddReaderComponent"></app-add-reader>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Patronymic name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Date birth
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let reader of readerList">
+            <td>{{reader.ID}}</td>
+            <td>{{reader.Surname}}</td>
+            <td>{{reader.Name}}</td>
+            <td>{{reader.PatronymicName}}</td>
+            <td>{{reader.Address}}</td>
+            <td>{{reader.Phone}}</td>
+            <td>{{reader.DateBirth}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click) = "editClick(reader)"
+                data-backdrop="static" data-keyboard="false"
+                >
+                    Edit reader
+                </button> 
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click) = "deleteClick(reader)">
+                    Delete reader
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

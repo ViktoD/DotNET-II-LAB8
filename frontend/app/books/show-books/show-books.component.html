@@ -1,0 +1,73 @@
+<h1>All books</h1>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click) = "addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add book
+</button> 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{modalTitle}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click) = "closeClick()" 
+          ></button>
+        </div>
+        <div class="modal-body">
+            <app-add-book [book]="book" *ngIf="activateAddBookComponent"></app-add-book>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Year published
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of bookList">
+            <td>{{book.ID}}</td>
+            <td>{{book.Name}}</td>
+            <td>{{book.Author}}</td>
+            <td>{{book.Price}}</td>
+            <td>{{book.YearPublished}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click) = "editClick(book)"
+                data-backdrop="static" data-keyboard="false"
+                >
+                    Edit book
+                </button> 
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click) = "deleteClick(book)">
+                    Delete book
+                </button>
+            </td>
+        </tr>
+    </tbody>

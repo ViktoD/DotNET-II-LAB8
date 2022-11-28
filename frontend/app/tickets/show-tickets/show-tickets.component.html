@@ -1,0 +1,68 @@
+<h1>All tickets</h1>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click) = "addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add ticket
+</button> 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{modalTitle}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click) = "closeClick()" 
+          ></button>
+        </div>
+        <div class="modal-body">
+            <app-add-ticket *ngIf="activateAddTicketComponent"></app-add-ticket>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>
+                ID ticket
+            </th>
+            <th>
+                Surname reader
+            </th>
+            <th>
+                Name reader
+            </th>
+            <th>
+                Patronymic name reader
+            </th>
+            <th>
+                Date start
+            </th>
+            <th>
+                Date end
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of ticketList">
+            <td>{{ticket.ID}}</td>
+            <td>{{ticket.Reader.Surname}}</td>
+            <td>{{ticket.Reader.Name}}</td>
+            <td>{{ticket.Reader.PatronymicName}}</td>
+            <td>{{ticket.DateStart}}</td>
+            <td>{{ticket.DateEnd}}</td>
+            <td>
+                <button type="button" class="btn btn-danger" (click) = "deleteClick(ticket)">
+                    Delete ticket
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

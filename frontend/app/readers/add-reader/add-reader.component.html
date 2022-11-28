@@ -1,0 +1,58 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">Reader surname</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="readerSurname"
+        placeholder="Enter reader surname" #name="ngModel"  required>
+        <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+            Enter reader surname
+        </div>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Reader name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="readerName"
+        placeholder="Enter reader name" #name1="ngModel"  required>
+        <div [hidden]="name1.valid || name1.untouched" class="alert alert-danger">
+            Enter reader name
+        </div>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Reader patronymic name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="readerPatronymicName"
+        placeholder="Enter reader patronymic name" #name2="ngModel"  required>
+        <div [hidden]="name2.valid || name2.untouched" class="alert alert-danger">
+            Enter reader patronymic name
+        </div>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Reader address</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="readerAddress"
+        placeholder="Enter reader address" #name3="ngModel"  required>
+        <div [hidden]="name3.valid || name3.untouched" class="alert alert-danger">
+            Enter reader address
+        </div>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Reader phone</label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" [(ngModel)]="readerPhone">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Reader date birth</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" [(ngModel)]="readerDateBirth" required>
+    </div>
+
+</div>
+
+
+<button type="button" (click)="addReader()" *ngIf="reader.ID == 0" class="btn btn-primary">
+    Add reader
+</button>
+
+<button type="button" (click)="editReader()" *ngIf="reader.ID !=0" class="btn btn-primary">
+    Edit reader
+</button>
